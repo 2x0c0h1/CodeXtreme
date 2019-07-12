@@ -51,6 +51,7 @@ exports.companylogin = (callback, email, password) => {
   		throw err;
   	} else {
   		console.log('companies query success');
+      callback(err, result);
   	}
   });
 };
