@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var CompanyUser = require('../lib/CompanyUser');
-//var NomadUser = require('../lib/NomadUser');
 
 router.get('/', function(req,res,next){
 	res.render('index', {isAuthenticated: true});
@@ -11,6 +9,7 @@ router.get('/profile', (req, res) => {
   res.render('pages/profile', {isAuthenticated: true});
 });
 
+<<<<<<< HEAD
 router.post('/comregister', function(req,res){
 	var username=req.body.username;
 	var password=req.body.password;
@@ -29,6 +28,8 @@ router.post('/comregister', function(req,res){
 	});
 });
 
+=======
+>>>>>>> 55cb7c4c3abe4ee2504832f0893976a70e75edcb
 // function ensureAuthenticated(req, res, next) {
 // 	if (req.isAuthenticated()) {
 // 		return next();
