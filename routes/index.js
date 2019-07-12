@@ -5,19 +5,21 @@ router.get('/', function(req,res,next){
 	res.render('index', {isAuthenticated: true});
 });
 
-router.get('/profile', (req, res) => {
-  res.render('pages/profile', {isAuthenticated: true});
+app.get('/profile', (req, res) => {
+  if (request.session.loggedin) {
+    res.render('pages/profile', {isAuthenticated: true, request.session.username});
+	} else {
+		response.send('Please login to view this page!');
+	}
+	response.end();
 });
 
 router.get('/projlist', (req, res) => {
-  res.render('pages/projlist', {isAuthenticated: true});
+  if (request.session.loggedin) {
+    res.render('pages/projlist', {isAuthenticated: true});
+  } else {
+		response.send('Please login to view this page!');
+	}
 });
-
-// function ensureAuthenticated(req, res, next) {
-// 	if (req.isAuthenticated()) {
-// 		return next();
-// 	}
-// 	res.redirect('/login');
-// };
 
 module.exports = router;
