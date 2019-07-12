@@ -31,13 +31,25 @@ function handleSQL(){
 
 handleSQL();
 
-exports.login = (callback, email, password) => {
+exports.nomadlogin = (callback, email, password) => {
   connection.query('SELECT * FROM nomads WHERE email = ? AND password = ?', [email, password], (err, result) => {
     if(err){
 			console.log('Error querying from nomads');
 			throw err;
 		}else{
 			console.log('nomads query success');
+			callback(err,result);
+		}
+  });
+}
+
+exports.companylogin = (callback, email, password) => {
+  connection.query('SELECT * FROM companies WHERE email = ? AND password = ?', [email, password], (err, result) => {
+    if(err){
+			console.log('Error querying from companies');
+			throw err;
+		}else{
+			console.log('companies query success');
 			callback(err,result);
 		}
   });
