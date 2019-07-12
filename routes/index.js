@@ -11,7 +11,7 @@ router.post('/comregister', function(req,res){
 	var username=req.body.username;
 	var password=req.body.password;
 	var name=req.body.name;
-	
+
 	var newcom=new CompanyUser();
 	newcom.username=username;
 	newcom.password=password;
@@ -22,6 +22,7 @@ router.post('/comregister', function(req,res){
 			return res.status(500).send();
 		}
 		return res.status(200).send();
+	});
 });
 
 router.get('/profile'/*, ensureAuthenticated*/, function(req,res){
