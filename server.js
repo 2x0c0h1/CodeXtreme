@@ -28,16 +28,16 @@ app.post('/auth', (req, res) => {
 	var email = req.body.email;
 	var password = req.body.password;
 	if (email && password) {
-		connection.query('SELECT * FROM accounts WHERE email = ? AND password = ?', [email, password], (error, results, fields) => {
-			if (results.length > 0) {
-				req.session.loggedin = true;
-				req.session.email = email;
-				res.redirect('/profile');
-			} else {
-				res.send('Incorrect Email and/or Password!');
-			}
-			res.end();
-		});
+		database.login( (err, results) => {
+      if (results.length > 0) {
+        req.session.loggedin = true;
+        req.session.email = email;
+        res.redirect('/profile');
+      } else {
+        res.send('Incorrect Email and/or Password!');
+      }
+      res.end();
+    }, email, password);
 	} else {
 		res.send('Please enter Email and Password!');
 		res.end();
