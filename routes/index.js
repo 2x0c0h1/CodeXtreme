@@ -7,6 +7,10 @@ router.get('/', function(req,res,next){
 	res.render('index', {isAuthenticated: true});
 });
 
+router.get('/profile', (req, res) => {
+  res.render('pages/profile', {isAuthenticated: true});
+});
+
 router.post('/comregister', function(req,res){
 	var username=req.body.username;
 	var password=req.body.password;

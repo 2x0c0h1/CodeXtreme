@@ -10,11 +10,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('pages/login');
-});
-
-app.get('/profile', (req, res) => {
-  res.render('pages/profile');
+  res.render('pages/login', {isAuthenticated: true});
 });
 
 var routes = require('./routes/index');
