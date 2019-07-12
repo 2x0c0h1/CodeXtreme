@@ -4,7 +4,7 @@ var CompanyUser = require('../lib/CompanyUser');
 //var NomadUser = require('../lib/NomadUser');
 
 router.get('/', function(req,res,next){
-	res.render('index', {title:'Express'});
+	res.render('index', {isAuthenticated: true});
 });
 
 router.post('/comregister', function(req,res){

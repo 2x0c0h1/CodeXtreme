@@ -12,14 +12,22 @@
         <li class="nav-item">
           <a class="nav-link" href="#about">About</a>
         </li>
+        <% if (isAuthenticated) { %>
         <li class="nav-item">
           <a class="nav-link" href="/profile">My Profile</a>
         </li>
+        <% } %>
       </ul>
       <ul class="my-2 my-lg-0">
+        <% if (!isAuthenticated) { %>
         <li class="nav-item">
           <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Login</a>
         </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Logout</a>
+        </li>
+        <% } %>
       </ul>
     </div>
   </div>
