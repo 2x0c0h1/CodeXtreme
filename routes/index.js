@@ -9,6 +9,10 @@ router.get('/profile', (req, res) => {
   res.render('pages/profile', {isAuthenticated: true});
 });
 
+router.get('/projlist', (req, res) => {
+  res.render('pages/projlist', {isAuthenticated: true});
+});
+
 // function ensureAuthenticated(req, res, next) {
 // 	if (req.isAuthenticated()) {
 // 		return next();
