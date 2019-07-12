@@ -13,6 +13,10 @@ app.get('/login', (req, res) => {
   res.render('pages/login');
 });
 
+app.get('/profile', (req, res) => {
+  res.render('pages/profile');
+});
+
 var routes = require('./routes/index');
 
 app.use('/', routes);
