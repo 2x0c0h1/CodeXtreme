@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-var database = require('./database.js');
 
 app.set('view engine', 'ejs');
 
