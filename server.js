@@ -2,7 +2,7 @@ const express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 const app = express();
-//var database = require('./database.js');
+var database = require('./routes/database.js');
 
 app.use(session({
 	secret: 'secret',

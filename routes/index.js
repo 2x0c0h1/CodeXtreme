@@ -5,9 +5,9 @@ router.get('/', function(req,res,next){
 	res.render('index', {isAuthenticated: true});
 });
 
-app.get('/profile', (req, res) => {
+router.get('/profile', (req, res) => {
   if (request.session.loggedin) {
-    res.render('pages/profile', {isAuthenticated: true, request.session.username});
+    res.render('pages/profile', {isAuthenticated: true, username: req.session.username});
 	} else {
 		response.send('Please login to view this page!');
 	}
