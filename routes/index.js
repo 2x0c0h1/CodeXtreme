@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/profile'/*, ensureAuthenticated*/, function(req,res){
-	res.render('profile', {user: req.user.name});
+	res.render('profile'/*, {user: req.user.name}*/);
 });
 
 // function ensureAuthenticated(req, res, next) {
