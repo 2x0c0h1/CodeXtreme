@@ -1,14 +1,16 @@
 const express = require('express');
 const app = express();
 
-
 app.set('view engine', 'ejs');
 
 app.use('/', express.static('./public'));
 
-
 app.get('/', (req, res) => {
-  res.render('pages/index', {foo: 'FOO'});
+  res.render('pages/index');
+});
+
+app.get('/login', (req, res) => {
+  res.render('pages/login');
 });
 
 var routes = require('./routes/index');
