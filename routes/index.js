@@ -22,10 +22,11 @@ router.post('/comregister', function(req,res){
 			return res.status(500).send();
 		}
 		return res.status(200).send();
+	});
 });
 
 router.get('/profile'/*, ensureAuthenticated*/, function(req,res){
-	res.render('profile', {user: req.user.name});
+	res.render('profile'/*, {user: req.user.name}*/);
 });
 
 // function ensureAuthenticated(req, res, next) {
