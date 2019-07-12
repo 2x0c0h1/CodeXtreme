@@ -29,10 +29,6 @@ router.post('/comregister', function(req,res){
 	});
 });
 
-router.get('/profile'/*, ensureAuthenticated*/, function(req,res){
-	res.render('profile'/*, {user: req.user.name}*/);
-});
-
 // function ensureAuthenticated(req, res, next) {
 // 	if (req.isAuthenticated()) {
 // 		return next();
