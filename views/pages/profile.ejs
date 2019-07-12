@@ -4,9 +4,6 @@
 <head>
 	<% include ../partials/header %>
 </head>
-<script>
-	console.log("email" + <%=username%>);
-</script>
 <style>
 	.profile_img {
 		border-radius: 50%;
@@ -48,6 +45,9 @@
 					</div>
 					<div class="row">
 						<div class="profile_desc">I love working on SQL projects</div>
+					</div>
+					<div class="row">
+						<div class="profile_desc">Email: <%=user%></div>
 					</div>
 					<div class="row">
 						<div class="profile_desc">Tags: </div>

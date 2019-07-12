@@ -43,6 +43,7 @@ exports.nomadlogin = (callback, email, password) => {
   });
 }
 
+<<<<<<< HEAD
 exports.companylogin = (callback, email, password) => {
   connection.query('SELECT * FROM companies WHERE email = ? AND password = ?', [email, password], (err, result) => {
     if(err){
@@ -50,6 +51,15 @@ exports.companylogin = (callback, email, password) => {
 			throw err;
 		}else{
 			console.log('companies query success');
+=======
+exports.getProfile = (callback, email) => {
+  connection.query('SELECT * FROM nomads WHERE email = ?', [email], (err, result) => {
+    if(err){
+			console.log('Error querying from nomads');
+			throw err;
+		}else{
+			console.log('nomads query success');
+>>>>>>> 824d754914d8b2c421b400b4e1228c6f21c1ec53
 			callback(err,result);
 		}
   });
