@@ -8,60 +8,35 @@
 	.profile_img {
 		border-radius: 50%;
 		width: 175px;
-		float: left;
 	}
 
-	.profile_name {
-		margin-left: 40px;
-		font-size: 35px;
-	}
-
-	.profile_desc {
-		margin-left: 40px;
+	p {
 		font-size: 20px;
-	}
-
-	.project_text {
-		text-align: center;
-		font-size: 30px;
-		margin: 20px;
-	}
-
-	.project_block {
-		padding: 20px;
-		margin: 20px;
 	}
 </style>
 
 <body>
 	<% include ../partials/navbar %>
 	<div class="container">
-		<div class="project_block">
-			<div class="row border">
-				<img class="profile_img" src="assets/static/default_avatar.png" alt="Avatar">
-				<div class="col">
-					<div class="row">
-						<div class="profile_name"><%=user[0].name%></div>
-					</div>
-					<div class="row">
-						<div class="profile_desc"><%=user[0].desc%></div>
-					</div>
-					<div class="row">
-						<div class="profile_desc">Email: <%=user[0].email%></div>
-					</div>
-					<div class="row">
-						<div class="profile_desc">Tags: </div>
-					</div>
-				</div>
+		<div class="row border mt-3 p-4">
+			<img class="profile_img" src="assets/static/default_avatar.png" alt="Avatar">
+			<div class="col ml-3 my-auto">
+				<h3>
+					<%=user[0].name%>
+				</h3>
+				<p>
+					<%=user[0].desc%>
+				</p>
+				<p>Email:
+					<%=user[0].email%>
+				</p>
+				<p>Tags: </p>
 			</div>
 		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="project_text">Current Projects</div>
-	</div>
-	</div>
-	<div class="container">
-		<div class="block">
+		<div class="row justify-content-center">
+			<h2 class="m-4">Current Projects</h2>
+		</div>
+		<div class="row">
 			<table class="table border">
 				<thead>
 					<tr>
@@ -84,13 +59,10 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="project_text">Completed Projects</div>
-	</div>
-	</div>
-	<div class="container">
-		<div class="block">
+		<div class="row justify-content-center">
+			<h2 class="m-4">Completed Projects</h2>
+		</div>
+		<div class="row">
 			<table class="table border">
 				<thead>
 					<tr>
@@ -114,6 +86,9 @@
 			</table>
 		</div>
 	</div>
+	<br>
+	<br>
+	<br>
 	<% include ../partials/footer %>
 </body>
 

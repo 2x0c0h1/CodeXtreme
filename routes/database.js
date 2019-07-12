@@ -57,7 +57,7 @@ exports.companylogin = (callback, email, password) => {
 
 exports.getProfile = (callback, email, usertype) => {
   var table = (usertype == 'nomad' ? 'nomads' : 'companies');
-	connection.query('SELECT * FROM ? WHERE email = ?', [table, email], (err, result) => {
+	connection.query('SELECT * FROM ' + table + ' WHERE email = ?', [email], (err, result) => {
 		if (err) {
 			console.log('Error querying from ' + table);
 			throw err;
