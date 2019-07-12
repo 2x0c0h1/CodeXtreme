@@ -23,3 +23,16 @@ router.post('/comregister', function(req,res){
 		}
 		return res.status(200).send();
 });
+
+router.get('/profile'/*, ensureAuthenticated*/, function(req,res){
+	res.render('profile', {user: req.user.name});
+});
+
+// function ensureAuthenticated(req, res, next) {
+// 	if (req.isAuthenticated()) {
+// 		return next();
+// 	}
+// 	res.redirect('/login');
+// };
+
+module.exports = router;
