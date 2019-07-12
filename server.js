@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+
 app.use(express.static('public'));
 
-app.get('/', function(req, res){
-  res.sendFile('index.html');
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+  res.render('index', {foo: 'FOO'});
 });
 
-app.listen(8080, function(){
-  console.log("Listening on port 8080!")
-});
+app.listen(8080, () => console.log("Listening on port 8080!"));
