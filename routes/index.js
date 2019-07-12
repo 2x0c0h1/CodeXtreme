@@ -25,9 +25,16 @@ router.get('/nomad/:id', (req, res) => {
   }, id, 'nomad');
 });
 
-router.get('/projlist', (req, res) => {
+router.get('/company/:id', (req, res) => {
+  var id = parseInt(req.params.id);
+  database.getProfile((err, user) => {
+    res.render('pages/company', {isAuthenticated: req.session.loggedin, user: user});
+  }, id, 'company');
+});
+
+router.get('/projects', (req, res) => {
   if (req.session.loggedin) {
-    res.render('pages/projlist', {isAuthenticated: req.session.loggedin});
+    res.render('pages/projects', {isAuthenticated: req.session.loggedin});
   } else {
 		res.send('Please login to view this page!');
 	}
