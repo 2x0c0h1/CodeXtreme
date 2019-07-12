@@ -22,26 +22,6 @@ app.use('/', routes);
 //   res.redirect('/login');
 // };
 
-const MongoClient = require('mongodb').MongoClient;
-const ObjectId = require("mongodb").ObjectID;
-const BodyParser = require("body-parser");
-const CONNECTION_URL  = "mongodb+srv://admin:admin@cluster0-qkndc.mongodb.net/test?retryWrites=true&w=majority";
-const DATABASE_NAME = "Outsourced";
-
-
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({ extended: true }));
-
-var database, collection;
-MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
-    if(error) {
-        throw error;
-    }
-    database = client.db(DATABASE_NAME);
-    collection = database.collection("CompanyUsers");
-
-    console.log("Connected to `" + DATABASE_NAME + "`!");
-});
 app.listen(8080, () => console.log("Listening on port 8080!"));
 
 
