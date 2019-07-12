@@ -17,11 +17,11 @@ app.set('view engine', 'ejs');
 app.use('/', express.static('./public'));
 
 app.get('/', (req, res) => {
-  res.render('pages/index', {isAuthenticated: true});
+  res.render('pages/index', {isAuthenticated: req.session.loggedin});
 });
 
 app.get('/login', (req, res) => {
-  res.render('pages/login', {isAuthenticated: true});
+  res.render('pages/login', {isAuthenticated: req.session.loggedin});
 });
 
 app.post('/auth', (req, res) => {
