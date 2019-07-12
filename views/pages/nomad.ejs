@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+	<% include ../partials/header %>
+</head>
+<style>
+	.profile_img {
+		border-radius: 50%;
+		width: 175px;
+	}
+
+	p {
+		font-size: 20px;
+	}
+</style>
+
+<body>
+	<% include ../partials/navbar %>
+	<div class="container">
+		<div class="row border mt-3 p-4">
+			<img class="profile_img" src="assets/static/default_avatar.png" alt="Avatar">
+			<div class="col ml-3 my-auto">
+				<h3>
+					Nomad <%=user[0].name%>
+				</h3>
+				<p>
+					<%=user[0].desc%>
+				</p>
+				<p>Email:
+					<%=user[0].email%>
+				</p>
+				<p>Tags: </p>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<h2 class="m-4">Current Projects</h2>
+		</div>
+		<div class="row">
+			<table class="table border">
+				<thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Tags</th>
+						<th scope="col">Organization</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="Name">Research on parametric vector equations in C++</th>
+						<td>abc</td>
+						<td>KMS</td>
+					</tr>
+					<tr>
+						<th scope="Name">Research on something</th>
+						<td>def</td>
+						<td>ey28ny1ec1p</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="row justify-content-center">
+			<h2 class="m-4">Completed Projects</h2>
+		</div>
+		<div class="row">
+			<table class="table border">
+				<thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Tags</th>
+						<th scope="col">Organization</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="Name">Java something java somethng</th>
+						<td>Java</td>
+						<td>KMS</td>
+					</tr>
+					<tr>
+						<th scope="Name">Python Python Python</th>
+						<td>Python</td>
+						<td>ey28ny1ec1p</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<% include ../partials/footer %>
+</body>
+
+</html>

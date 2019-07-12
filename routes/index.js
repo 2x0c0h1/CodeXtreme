@@ -9,7 +9,6 @@ router.get('/', function(req,res,next){
 router.get('/profile', (req, res) => {
   if (req.session.loggedin) {
 		database.getProfile( (err, results) => {
-			console.log(results);
 			res.render('pages/profile', {isAuthenticated: req.session.loggedin, user: results});
       res.end();
     }, req.session.email, req.session.usertype);
@@ -17,6 +16,13 @@ router.get('/profile', (req, res) => {
 		res.send('Please login to view this page!');
 		res.end();
 	}
+});
+
+router.get('/nomad/:id', (req, res) => {
+  var id = parseInt(req.params.id);
+  database.getProfile((err, user) => {
+    res.render('pages/nomad', {isAuthenticated: req.session.loggedin, user: user});
+  }, id, 'nomad');
 });
 
 router.get('/projlist', (req, res) => {

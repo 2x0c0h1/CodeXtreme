@@ -55,9 +55,10 @@ exports.companylogin = (callback, email, password) => {
   });
 };
 
-exports.getProfile = (callback, email, usertype) => {
+exports.getProfile = (callback, identifier, usertype) => {
   var table = (usertype == 'nomad' ? 'nomads' : 'companies');
-	connection.query('SELECT * FROM ' + table + ' WHERE email = ?', [email], (err, result) => {
+  var argument = (typeof identifier === "string" ? 'email' : 'id')
+	connection.query('SELECT * FROM ' + table + ' WHERE ' + argument + ' = ?', [identifier], (err, result) => {
 		if (err) {
 			console.log('Error querying from ' + table);
 			throw err;
