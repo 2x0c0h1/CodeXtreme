@@ -55,13 +55,14 @@ exports.companylogin = (callback, email, password) => {
   });
 };
 
-exports.getProfile = (callback, email) => {
-	connection.query('SELECT * FROM nomads WHERE email = ?', [email], (err, result) => {
+exports.getProfile = (callback, email, usertype) => {
+  var table = (usertype == 'nomad' ? 'nomads' : 'companies');
+	connection.query('SELECT * FROM ? WHERE email = ?', [table, email], (err, result) => {
 		if (err) {
-			console.log('Error querying from nomads');
+			console.log('Error querying from ' + table);
 			throw err;
 		} else {
-			console.log('nomads query success');
+			console.log(table + ' query success');
 			callback(err, result);
 		}
 	});

@@ -39,6 +39,7 @@ app.post('/auth', (req, res) => {
 			if (results.length > 0) {
 				req.session.loggedin = true;
 				req.session.email = email;
+        req.session.usertype = usertype;
 				res.redirect('/profile');
 			} else {
 				res.send('Incorrect Email and/or Password!');
@@ -50,6 +51,7 @@ app.post('/auth', (req, res) => {
 			if (results.length > 0) {
 				req.session.loggedin = true;
 				req.session.email = email;
+        req.session.usertype = usertype;
 				res.redirect('/profile');
 			} else {
 				res.send('Incorrect Email and/or Password!');

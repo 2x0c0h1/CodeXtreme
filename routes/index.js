@@ -12,7 +12,7 @@ router.get('/profile', (req, res) => {
 			console.log(results);
 			res.render('pages/profile', {isAuthenticated: req.session.loggedin, user: results});
       res.end();
-    }, req.session.email);
+    }, req.session.email, req.session.usertype);
 	} else {
 		res.send('Please login to view this page!');
 		res.end();
