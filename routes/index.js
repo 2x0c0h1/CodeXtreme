@@ -6,6 +6,10 @@ router.get('/', function(req,res,next){
 	res.render('index', {isAuthenticated: req.session.loggedin});
 });
 
+router.get('/payment', function(req,res,next){
+	res.render('pages/payment', {isAuthenticated: req.session.loggedin});
+});
+
 router.get('/profile', (req, res) => {
   if (req.session.loggedin) {
 		database.getProfile( (err, results) => {
