@@ -6,15 +6,31 @@ router.get('/', function(req,res,next){
 	res.render('index', {isAuthenticated: req.session.loggedin});
 });
 
+router.get('/payment', function(req,res,next){
+	res.render('pages/payment', {isAuthenticated: req.session.loggedin});
+});
+
 router.get('/profile', (req, res) => {
   if (req.session.loggedin) {
 		database.getProfile((err, profile) => {
       database.getSkills((err, skills) => {
         database.getNomadProjects((err, projects) => {
-            res.render('pages/profile', {isAuthenticated: req.session.loggedin, user: profile, skills: skills, projects: projects});
+            res.render('pages/profile', {isAuthenticated: req.session.loggedin, user: profile, skills: skills, projects: projects, usertype: req.session.usertype});
         }, profile[0].id);
       }, profile[0].id);
     }, req.session.email, req.session.usertype);
+	} else {
+		res.send('Please login to view this page!');
+		res.end();
+	}
+});
+
+router.get('/companypriv', (req, res) => {
+	if (req.session.loggedin) {
+		database.getProfile( (err, results) => {
+			res.render('pages/companypriv', {isAuthenticated: req.session.loggedin, user: results});
+			res.end();
+		}, req.session.email, req.session.usertype);
 	} else {
 		res.send('Please login to view this page!');
 		res.end();
@@ -48,5 +64,7 @@ router.get('/projects', (req, res) => {
 		res.send('Please login to view this page!');
 	}
 });
+
+
 
 module.exports = router;

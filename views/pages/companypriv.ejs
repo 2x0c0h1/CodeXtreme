@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
-<script>
-console.log(<%=user[0]%>);
-</script>
+
 <head>
 	<% include ../partials/header %>
 </head>
@@ -21,11 +19,10 @@ console.log(<%=user[0]%>);
 	<% include ../partials/navbar %>
 	<div class="container">
 		<div class="row border mt-3 p-4">
-			<!-- <img class="profile_img" src="/assets/static/default_avatar.png" alt="Avatar"> -->
+			<img class="profile_img" src="/assets/static/default_avatar.png" alt="Avatar">
 			<div class="col ml-3 my-auto">
 				<h3>
-					Company
-					<%=user[0].companyname%>
+					Company <%=user[0].name%>
 				</h3>
 				<p>
 					<%=user[0].desc%>
@@ -37,7 +34,7 @@ console.log(<%=user[0]%>);
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<h2 class="m-4">Available Projects</h2>
+			<h2 class="m-4">Current Projects</h2>
 		</div>
 		<div class="row">
 			<table class="table border">
@@ -58,6 +55,35 @@ console.log(<%=user[0]%>);
 						<th scope="Name">Research on something</th>
 						<td>def</td>
 						<td>ey28ny1ec1p</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="row justify-content-center">
+			<h2 class="m-4">Existing Projects</h2>
+		</div>
+		<div class="row">
+			<table class="table border">
+				<thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Status</th>
+						<th scope="col">Nomad</th>
+						<th scope="col">Payrate</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="Name">fuck bitches get money</th>
+						<td>open</td>
+            <td>nobody</td>
+            <td>350</td>
+					</tr>
+					<tr>
+						<th scope="Name">sing baba yetu in publc</th>
+						<td>inprogress</td>
+						<td>Koko</td>
+            <td>5</td>
 					</tr>
 				</tbody>
 			</table>
