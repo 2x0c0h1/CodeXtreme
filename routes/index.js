@@ -18,6 +18,18 @@ router.get('/profile', (req, res) => {
 	}
 });
 
+router.get('/companypriv', (req, res) => {
+	if (req.session.loggedin) {
+		database.getProfile( (err, results) => {
+			res.render('pages/companypriv', {isAuthenticated: req.session.loggedin, user: results});
+			res.end();
+		}, req.session.email, req.session.usertype);
+	} else {
+		res.send('Please login to view this page!');
+		res.end();
+	}
+});
+
 router.get('/nomad/:id', (req, res) => {
   var id = parseInt(req.params.id);
   database.getProfile((err, user) => {
@@ -39,5 +51,7 @@ router.get('/projects', (req, res) => {
 		res.send('Please login to view this page!');
 	}
 });
+
+
 
 module.exports = router;
