@@ -134,7 +134,7 @@ ALTER TABLE `nomads_skills`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `companyby` (`companyby`),
+  ADD KEY `companyby` (`companyby`);
 
 
 --
