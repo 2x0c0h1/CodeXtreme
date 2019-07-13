@@ -1,6 +1,6 @@
-INSERT INTO nomads VALUES (101, "test1@mail.com", "supersecure", "John Doe", "https://pbs.twimg.com/profile_images/884980031297961984/PNNTLOhK.jpg");
-INSERT INTO nomads VALUES (102, "muthu@mail.com", "supersecure", "Muthupalaniappan Ramanathan", "https://d1bvpoagx8hqbg.cloudfront.net/259/c1104b89afcd82815fb24b301c0d04ab.jpg");
-INSERT INTO nomads VALUES (103, "test3@mail.com", "supersecure", "Tan Ah Hock", "https://qph.fs.quoracdn.net/main-qimg-6666a7ec145e975ebdded1a2578e49ff");
+INSERT INTO nomads VALUES (101, "test1@mail.com", "supersecure", "John Doe", "https://pbs.twimg.com/profile_images/884980031297961984/PNNTLOhK.jpg","im hip and cool and use js and web apps","DE89 3704 0044 0532 0130 00",NULL,NULL);
+INSERT INTO nomads VALUES (102, "muthu@mail.com", "supersecure", "Muthupalaniappan Ramanathan", "https://d1bvpoagx8hqbg.cloudfront.net/259/c1104b89afcd82815fb24b301c0d04ab.jpg","i like java and android stuff idk",NULL,"OCBCSGSG","501123956001");
+INSERT INTO nomads VALUES (103, "test3@mail.com", "supersecure", "Tan Ah Hock", "https://qph.fs.quoracdn.net/main-qimg-6666a7ec145e975ebdded1a2578e49ff","i am chinese lol",NULL,"CTBAAU2S","765674567456");
 
 INSERT INTO skills VALUES (1, "Web Dev");
 INSERT INTO skills VALUES (2, "Home Networking");
