@@ -94,6 +94,18 @@ exports.getNomadProjects = (callback,id) => {
   })
 };
 
+exports.getCompanyProjects = (callback,id) => {
+  connection.query('SELECT * FROM projects WHERE companyby = ?', [id], (err, result) => {
+    if (err) {
+			console.log('Error querying from projects');
+			throw err;
+		} else {
+			console.log('projects query success');
+			callback(err, result);
+		}
+  })
+};
+
 
 exports.getProjects = (callback) => {
   connection.query('SELECT * FROM projects LEFT JOIN companies ON projects.companyby=companies.id WHERE status = "open"', (err, result) => {

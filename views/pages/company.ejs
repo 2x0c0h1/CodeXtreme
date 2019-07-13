@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
-<script>
-console.log(<%=user[0]%>);
-</script>
+
 <head>
 	<% include ../partials/header %>
 </head>
@@ -10,6 +8,14 @@ console.log(<%=user[0]%>);
 	.profile_img {
 		border-radius: 50%;
 		width: 175px;
+	}
+
+	.card-columns {
+		column-count: 2;
+
+		@include media-breakpoint-only(sm) {
+			column-count: 1;
+		}
 	}
 
 	p {
@@ -39,28 +45,30 @@ console.log(<%=user[0]%>);
 		<div class="row justify-content-center">
 			<h2 class="m-4">Available Projects</h2>
 		</div>
-		<div class="row">
-			<table class="table border">
-				<thead>
-					<tr>
-						<th scope="col">Name</th>
-						<th scope="col">Tags</th>
-						<th scope="col">Organization</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="Name">Research on parametric vector equations in C++</th>
-						<td>abc</td>
-						<td>KMS</td>
-					</tr>
-					<tr>
-						<th scope="Name">Research on something</th>
-						<td>def</td>
-						<td>ey28ny1ec1p</td>
-					</tr>
-				</tbody>
-			</table>
+		<div class="card-columns">
+			<% for(var i=0; i < projects.length; i++) { %>
+			<% if (projects[i].status == "open") {%>
+			<div class="card">
+				<% if (projects[i].img) {%>
+				<img class="card-img-top" src="..." alt="Card image cap">
+				<% } %>
+				<div class="card-body">
+					<h5 class="card-title">
+						<%= projects[i].name %>
+					</h5>
+					<p class="card-text">
+						<%= projects[i].description %>
+					</p>
+					<p class="card-text">
+						Payrate : $
+						<%= projects[i].payrate %>
+					</p>
+					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					<button class="btn btn-primary m-3" style="position: absolute;bottom: 0;right: 0;">Apply</button>
+				</div>
+			</div>
+			<% } %>
+			<% } %>
 		</div>
 	</div>
 	<br>

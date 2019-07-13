@@ -51,7 +51,9 @@ router.get('/nomad/:id', (req, res) => {
 router.get('/company/:id', (req, res) => {
   var id = parseInt(req.params.id);
   database.getProfile((err, user) => {
-    res.render('pages/company', {isAuthenticated: req.session.loggedin, user: user});
+    database.getCompanyProjects((err, projects) => {
+      res.render('pages/company', {isAuthenticated: req.session.loggedin, user: user, projects: projects});
+    }, id)
   }, id, 'company');
 });
 
