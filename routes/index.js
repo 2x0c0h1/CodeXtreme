@@ -11,7 +11,7 @@ router.get('/payment', function(req,res,next){
 });
 
 router.get('/profile', (req, res) => {
-  if (req.session.loggedin) {
+  if (req.session.loggedin && req.session.usertype == "nomad") {
 		database.getProfile((err, profile) => {
       database.getSkills((err, skills) => {
         database.getNomadProjects((err, projects) => {
@@ -25,8 +25,8 @@ router.get('/profile', (req, res) => {
 	}
 });
 
-router.get('/companypriv', (req, res) => {
-	if (req.session.loggedin) {
+router.get('/dashboard', (req, res) => {
+	if (req.session.loggedin && req.session.usertype == "company") {
 		database.getProfile( (err, results) => {
 			res.render('pages/companypriv', {isAuthenticated: req.session.loggedin, user: results});
 			res.end();

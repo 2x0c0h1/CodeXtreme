@@ -40,7 +40,7 @@ app.post('/auth', (req, res) => {
 				req.session.loggedin = true;
 				req.session.email = email;
         req.session.usertype = usertype;
-				res.redirect('/profile');
+				res.redirect('/dashboard');
 			} else {
 				res.send('Incorrect Email and/or Password!');
 			}
