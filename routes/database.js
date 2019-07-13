@@ -95,7 +95,7 @@ exports.getNomadProjects = (callback,id) => {
 };
 
 exports.getCompanyProjects = (callback,id) => {
-  connection.query('SELECT * FROM projects WHERE companyby = ?', [id], (err, result) => {
+  connection.query({sql: 'SELECT p.status,p.description, p.payrate ,p.name, n.name FROM projects as p LEFT JOIN nomads as n ON p.nomadtaken=n.id WHERE companyby = '+ [id], nestTables: '_'}, (err, result) => {
     if (err) {
 			console.log('Error querying from projects');
 			throw err;
@@ -108,7 +108,7 @@ exports.getCompanyProjects = (callback,id) => {
 
 
 exports.getProjects = (callback) => {
-  connection.query('SELECT * FROM projects LEFT JOIN companies ON projects.companyby=companies.id WHERE status = "open"', (err, result) => {
+  connection.query({sql: 'SELECT * FROM projects AS p LEFT JOIN companies AS c ON p.companyby=c.id WHERE status = "open"', nestTables: '_'}, (err, result) => {
     if (err) {
 			console.log('Error querying from projects');
 			throw err;

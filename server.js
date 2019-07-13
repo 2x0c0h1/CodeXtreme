@@ -20,13 +20,13 @@ app.use('/', express.static('./public'));
 
 app.get('/', (req, res) => {
 	res.render('pages/index', {
-		isAuthenticated: req.session.loggedin
+		isAuthenticated: req.session.loggedin, type: req.session.usertype
 	});
 });
 
 app.get('/login', (req, res) => {
 	res.render('pages/login', {
-		isAuthenticated: req.session.loggedin
+		isAuthenticated: req.session.loggedin, type: req.session.usertype
 	});
 });
 

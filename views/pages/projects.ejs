@@ -25,19 +25,19 @@
 		</div>
 		<div class="card-columns">
 			<% for(var i=0; i < projects.length; i++) { %>
-			<a href="/company/<%= projects[i].companyby%>" class="card">
+			<a href="/company/<%= projects[i].p_companyby%>" class="card">
 				<% if (projects[i].img) {%>
 				<img class="card-img-top" src="..." alt="Card image cap">
 				<% } %>
 				<div class="card-body">
 					<h5 class="card-title">
-						<%= projects[i].name %>
+						<%= projects[i].p_name %>
 					</h5>
 					<p class="card-text">
-						<%= projects[i].description %>
+						<%= projects[i].p_description %>
 					</p>
 					<p class="card-text font-italic">
-						<%= projects[i].companyname %>
+						<%= projects[i].c_companyname %>
 					</p>
 					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 				</div>
