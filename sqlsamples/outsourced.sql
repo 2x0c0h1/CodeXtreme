@@ -51,10 +51,9 @@ CREATE TABLE `nomads` (
   `password` text COLLATE utf8_bin NOT NULL,
   `name` text COLLATE utf8_bin NOT NULL,
   `profilepic` int(11) NOT NULL,
-  'iban' text COLLATE utf8_bin,
-  'swift' text COLLATE utf8_bin,
-  'accnum' text COLLATE utf8_bin
-
+  `iban` text COLLATE utf8_bin ,
+  `swift` text COLLATE utf8_bin,
+  `accnum` text COLLATE utf8_bin
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
