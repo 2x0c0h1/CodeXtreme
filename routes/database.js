@@ -69,3 +69,40 @@ exports.getProfile = (callback, identifier, usertype) => {
 		}
 	});
 };
+
+exports.getSkills = (callback, id) => {
+  connection.query('SELECT nomads_skills.*,skills.skill FROM nomads_skills LEFT JOIN skills ON nomads_skills.skillid=skills.id WHERE nomadid = ?', [id], (err, result) => {
+    if (err) {
+			console.log('Error querying from nomads_skills');
+			throw err;
+		} else {
+			console.log('nomads_skills query success');
+			callback(err, result);
+		}
+  })
+};
+
+exports.getNomadProjects = (callback,id) => {
+  connection.query('SELECT * FROM projects LEFT JOIN companies ON projects.companyby=companies.id WHERE nomadtaken = ?', [id], (err, result) => {
+    if (err) {
+			console.log('Error querying from projects');
+			throw err;
+		} else {
+			console.log('projects query success');
+			callback(err, result);
+		}
+  })
+};
+
+
+exports.getProjects = (callback) => {
+  connection.query('SELECT * FROM projects LEFT JOIN companies ON projects.companyby=companies.id WHERE status = "open"', (err, result) => {
+    if (err) {
+			console.log('Error querying from projects');
+			throw err;
+		} else {
+			console.log('projects query success');
+			callback(err, result);
+		}
+  })
+};
