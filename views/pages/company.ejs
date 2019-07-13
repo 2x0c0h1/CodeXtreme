@@ -47,24 +47,26 @@
 		</div>
 		<div class="card-columns">
 			<% for(var i=0; i < projects.length; i++) { %>
-			<% if (projects[i].status == "open") {%>
+			<% if (projects[i].p_status == "open") {%>
 			<div class="card">
 				<% if (projects[i].img) {%>
 				<img class="card-img-top" src="..." alt="Card image cap">
 				<% } %>
 				<div class="card-body">
 					<h5 class="card-title">
-						<%= projects[i].name %>
+						<%= projects[i].p_name %>
 					</h5>
 					<p class="card-text">
-						<%= projects[i].description %>
+						<%= projects[i].p_description %>
 					</p>
 					<p class="card-text">
 						Payrate : $
-						<%= projects[i].payrate %>
+						<%= projects[i].p_payrate %>
 					</p>
 					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					<% if (type != "company") {%>
 					<button class="btn btn-primary m-3" style="position: absolute;bottom: 0;right: 0;">Apply</button>
+					<% } %>
 				</div>
 			</div>
 			<% } %>
