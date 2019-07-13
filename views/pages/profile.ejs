@@ -29,9 +29,15 @@
 
 		</div>
 			<div class="col-8 ml-3 my-auto">
-				<h3>
-					<%=user[0].name%>
-				</h3>
+				<% if (usertype != "company") { %>
+					<h3>
+						<%=user[0].name%>
+					</h3>
+				<% } else { %>
+					<h3>
+						<%=user[0].companyname%>
+					</h3>
+				<% } %>
 				<p>
 					<%=user[0].desc%>
 				</p>
@@ -51,6 +57,9 @@
 						<th scope="col">Name</th>
 						<th scope="col">Tags</th>
 						<th scope="col">Organization</th>
+						<% if (usertype == "company") { %>
+							<th scope="col">Payments</th>
+						<% } %>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,6 +67,9 @@
 						<th scope="Name">Research on parametric vector equations in C++</th>
 						<td>abc</td>
 						<td>KMS</td>
+						<% if (usertype == "company") { %>
+							<td scope="col">Payments</td>
+						<% } %>
 					</tr>
 					<tr>
 						<th scope="Name">Research on something</th>

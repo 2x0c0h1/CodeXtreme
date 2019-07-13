@@ -9,7 +9,7 @@ router.get('/', function(req,res,next){
 router.get('/profile', (req, res) => {
   if (req.session.loggedin) {
 		database.getProfile( (err, results) => {
-			res.render('pages/profile', {isAuthenticated: req.session.loggedin, user: results});
+			res.render('pages/profile', {isAuthenticated: req.session.loggedin, user: results, usertype: req.session.usertype});
       res.end();
     }, req.session.email, req.session.usertype);
 	} else {
