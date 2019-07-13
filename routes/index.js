@@ -28,9 +28,10 @@ router.get('/profile', (req, res) => {
 router.get('/dashboard', (req, res) => {
 	if (req.session.loggedin && req.session.usertype == "company") {
 		database.getProfile( (err, results) => {
-			res.render('pages/companypriv', {isAuthenticated: req.session.loggedin, user: results});
-			res.end();
-		}, req.session.email, req.session.usertype);
+      database.getCompanyProjects((err, projects) => {
+        res.render('pages/companypriv', {isAuthenticated: req.session.loggedin, user: results, projects: projects});
+      }, results[0].id)
+		}, req.session.email, 'company');
 	} else {
 		res.send('Please login to view this page!');
 		res.end();
